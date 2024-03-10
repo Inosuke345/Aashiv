@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.calculator {
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#result {
+  font-size: 24px;
+  margin-bottom: 10px;
+  text-align: right;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.button {
+  width: 50px;
+  height: 50px;
+  font-size: 18px;
+  margin: 5px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+}
+
+.button:hover {
+  background-color: #f0f0f0;
+}
+</style>
+</head>
+<body>
+<div class="calculator">
+  <div id="result"></div>
+  <button class="button" onclick="clearResult()">C</button>
+  <button class="button" onclick="appendToResult('7')">7</button>
+  <button class="button" onclick="appendToResult('8')">8</button>
+  <button class="button" onclick="appendToResult('9')">9</button>
+  <button class="button" onclick="appendToResult('+')">+</button>
+  <button class="button" onclick="appendToResult('4')">4</button>
+  <button class="button" onclick="appendToResult('5')">5</button>
+  <button class="button" onclick="appendToResult('6')">6</button>
+  <button class="button" onclick="appendToResult('-')">-</button>
+  <button class="button" onclick="appendToResult('1')">1</button>
+  <button class="button" onclick="appendToResult('2')">2</button>
+  <button class="button" onclick="appendToResult('3')">3</button>
+  <button class="button" onclick="appendToResult('*')">*</button>
+  <button class="button" onclick="appendToResult('0')">0</button>
+  <button class="button" onclick="calculate()">=</button>
+  <button class="button" onclick="appendToResult('/')">/</button>
+</div>
+
+<script>
+let result = document.getElementById('result');
+
+function appendToResult(value) {
+  result.innerText += value;
+}
+
+function clearResult() {
+  result.innerText = '';
+}
+
+function calculate() {
+  try {
+    result.innerText = eval(result.innerText);
+  } catch (error) {
+    result.innerText = 'Error';
+  }
+}
+</script>
+</body>
+</html>
